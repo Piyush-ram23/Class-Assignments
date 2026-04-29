@@ -1,45 +1,67 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+// const express = require("express");
+// const bodyParser = require("body-parser");
+// const cors = require("cors");
 
-const app = express();
-const PORT = 3000;
+// const app = express();
+// const PORT = 3000;
 
-app.use(cors());
-app.use(bodyParser.json());
+// app.use(cors());
+// app.use(bodyParser.json());
 
-// Sample product data
-let products = [
-  { id: 1, name: "Almonds", price: 500 },
-  { id: 2, name: "Cashews", price: 700 },
-  { id: 3, name: "Raisins", price: 300 }
-];
+// // Sample product data
+// let products = [
+//   { id: 1, name: "Almonds", price: 500 },
+//   { id: 2, name: "Cashews", price: 700 },
+//   { id: 3, name: "Raisins", price: 300 }
+// ];
 
-// GET products
-app.get("/products", (req, res) => {
-  res.json(products);
-});
+// // GET products
+// app.get("/products", (req, res) => {
+//   res.json(products);
+// });
 
-// POST contact form
-app.post("/contact", (req, res) => {
-  const { name, email, message } = req.body;
+// // POST contact form
+// app.post("/contact", (req, res) => {
+//   const { name, email, message } = req.body;
 
-  console.log("New Contact:");
-  console.log(name, email, message);
+//   console.log("New Contact:");
+//   console.log(name, email, message);
 
-  res.json({ message: "Message received successfully!" });
-});
+//   res.json({ message: "Message received successfully!" });
+// });
 
-// POST order
-app.post("/order", (req, res) => {
-  const { product, quantity } = req.body;
+// // POST order
+// app.post("/order", (req, res) => {
+//   const { product, quantity } = req.body;
 
-  console.log("New Order:");
-  console.log(product, quantity);
+//   console.log("New Order:");
+//   console.log(product, quantity);
 
-  res.json({ message: "Order placed successfully!" });
-});
+//   res.json({ message: "Order placed successfully!" });
+// });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on http://localhost:${PORT}`);
+// });
+<script>
+async function sendMessage(event) {
+  event.preventDefault();
+
+  const data = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value
+  };
+
+  const res = await fetch("http://localhost:3000/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  const result = await res.json();
+  alert(result.message);
+}
+</script>
