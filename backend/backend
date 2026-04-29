@@ -1,0 +1,45 @@
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+
+const app = express();
+const PORT = 3000;
+
+app.use(cors());
+app.use(bodyParser.json());
+
+// Sample product data
+let products = [
+  { id: 1, name: "Almonds", price: 500 },
+  { id: 2, name: "Cashews", price: 700 },
+  { id: 3, name: "Raisins", price: 300 }
+];
+
+// GET products
+app.get("/products", (req, res) => {
+  res.json(products);
+});
+
+// POST contact form
+app.post("/contact", (req, res) => {
+  const { name, email, message } = req.body;
+
+  console.log("New Contact:");
+  console.log(name, email, message);
+
+  res.json({ message: "Message received successfully!" });
+});
+
+// POST order
+app.post("/order", (req, res) => {
+  const { product, quantity } = req.body;
+
+  console.log("New Order:");
+  console.log(product, quantity);
+
+  res.json({ message: "Order placed successfully!" });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
