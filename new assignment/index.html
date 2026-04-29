@@ -18,9 +18,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 40px;
+      padding: 15px 30px;
       background: #ffffff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -132,20 +132,50 @@
         text-shadow: #aa8e83 3px 1px 2px ;
         /* box-shadow: #333 0px 4px 8px; */
     }
+   
     .Logo img{
         width: 100px;
         height: 100px;
         display: flex;
+        justify-content: space-between;
+        align-items: right;
+        vertical-align: middle;
+        background: #e7c3b9;
+        top: 0;
+    }
+     .hero1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px;
+      width: 1300px;
+      background: linear-gradient(to right, #ffe8df, #fff);
+    }
+
+    .hero-text2 {
+      max-width: 50%;
+    }
+    /* @media(max-width: 768px) {
+      .hero { flex-direction: column; text-align: center; }
+      .hero-text { max-width: 100%; }
+      .hero img { margin-top: 20px; }
+    } */
+    @media(max-width: 768px) {
+      .hero1 { flex-direction: column; text-align: center; }
+      .hero-text2 { max-width: 100%; }
+      .hero1 img { margin-top: 30px; }
     }
   </style>
 </head>
 <body>
-
+<section class="Logo">
+   <div class="Logo">  
+    <img src="image/Hurbnut 1.png">
+  </div> 
+</section>
 <header>
   <h1>Herbnuts</h1>
-  <div class="Logo"> 
-    <img src="image/Hurbnut.png">
-  </div>
+   
   <nav>
     <a href="#">Home</a>
     <a href="#products">Products</a>
@@ -162,6 +192,13 @@
     <button class="btn">Shop Now</button>
   </div>
   <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2" alt="Dry Fruits">
+</section>
+<section class="hero1">
+  <!-- <div class="hero-text2">
+    <h2>Welcome to Herbnuts</h2>
+     <img src="image/Herbnut 1.png">
+  </div>  -->
+  <img src="image/hero 1.png" alt="Hero Image">
 </section>
 
 <section id="products" class="section">
